@@ -11,43 +11,78 @@
       <span class='name'>#Trump</span>
       <canvas id="trump" class="chart chart-doughnut"
       chart-colours='colors' chart-legend="true"
-      chart-data="trumpData" chart-labels="labels">
+      chart-data="followersData" chart-labels="labels">
     </canvas>
   </div>
-  <div class='col-md-2 col-lg-4'>
-    <img class='img' src='../img/sanders.png'>
-  </div>
-  <div class='col-md-4 col-lg-8'>
-    <span class='name'>#FeelTheBern</span>
-    <canvas id="sanders" class="chart chart-doughnut"
-    chart-colours='colors' chart-legend="true"
-    chart-data="sandersData" chart-labels="labels">
-  </canvas>
-</div>
 </div>
 <br><br>
 <div class='row'>
-  <div class="col-md-12">
+  <div class="col-md-4">
+    <h2>Trump</h2>
     {% raw %}
-    <div class="tweet-zone">
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="tweet-zone" ng-repeat="data in mostPopular.trump">
+      <div  class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 panelheader class="panel-title">
-              <a href="https://twitter.com/{{user}}">{{user}}</a></h3>
+          <div class="panel-heading" >
+            <h3 panelheader class="panel-title" >
+              <strong><a href="https://twitter.com/{{data.user}}">{{data.user}}</a></strong> Followers:<span ng-bind="data.followers"></span></h3>
             </div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-12">
-                    {{tweet}}
+                    {{data.message}}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {% endraw %}
     </div>
-    {% endraw %}
+    <div class="col-md-4">
+      <h2>Hillary</h2>
+      {% raw %}
+      <div class="tweet-zone" ng-repeat="data in mostPopular.hillary">
+        <div  class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" >
+              <h3 panelheader class="panel-title" >
+                <strong><a href="https://twitter.com/{{data.user}}">{{data.user}}</a></strong> Followers:<span ng-bind="data.followers"></span></h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-12">
+                      {{data.message}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endraw %}
+      </div>
+      <div class="col-md-4">
+        <h2>Bernie</h2>
+        {% raw %}
+        <div class="tweet-zone" ng-repeat="data in mostPopular.bernie">
+          <div  class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" >
+                <h3 panelheader class="panel-title" >
+                  <strong><a href="https://twitter.com/{{data.user}}">{{data.user}}</a></strong> Followers:<span ng-bind="data.followers"></span></h3>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                        {{data.message}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endraw %}
+        </div>
   </div>
 
   {% endblock %}
